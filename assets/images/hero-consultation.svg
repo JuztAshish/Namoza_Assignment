@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="480" viewBox="0 0 640 480">
+  <rect width="640" height="480" fill="#e2e8f0" />
+  <text x="50%" y="48%" dominant-baseline="middle" text-anchor="middle" font-size="28" fill="#334155">Hero image placeholder</text>
+  <text x="50%" y="58%" dominant-baseline="middle" text-anchor="middle" font-size="18" fill="#475569">Replace with real .jpg asset before launch</text>
+</svg>
