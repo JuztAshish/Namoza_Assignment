@@ -16,7 +16,9 @@
   <meta property="og:url" content="https://juztashish.github.io/Namoza_Assignment/">
   <meta name="twitter:card" content="summary_large_image">
 
-  
+  <link rel="preload" href="styles.css" as="style">
+  <link rel="preload" href="script.js" as="script">
+  <link rel="preload" href="assets/images/hero-consultation.jpg" as="image">
   <link rel="stylesheet" href="styles.css">
 
   <!-- ===========================================
@@ -69,6 +71,7 @@
             alt="Orthopaedic specialist reviewing a knee X-ray with a patient during a consultation"
             width="640"
             height="480"
+            decoding="async"
             fetchpriority="high"
           >
         </div>
@@ -181,7 +184,7 @@
             <p class="form-disclaimer">By submitting, you agree to be contacted about your appointment. We never share your number.</p>
           </form>
 
-          <div class="thank-you" id="thank-you" role="status">
+          <div class="thank-you" id="thank-you" role="status" aria-live="polite">
             <div class="thank-you__icon" aria-hidden="true">✓</div>
             <p class="thank-you__title">You're booked in.</p>
             <p class="thank-you__body">Our care coordinator will call you within the hour to confirm your slot. Keep your phone nearby.</p>
