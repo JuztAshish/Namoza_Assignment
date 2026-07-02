@@ -138,10 +138,14 @@ const AppointmentForm = (() => {
   }
 
   function revealThankYou() {
-    formCard.style.display = 'none';
+    // Hide only the form element so the surrounding card (which contains
+    // the thank-you panel) remains in the layout. Previously we hid the
+    // entire `formCard`, which also hid the `#thank-you` element because
+    // it is a child of that container.
+    if (form) form.style.display = 'none';
     thankYou.classList.add('is-visible');
     thankYou.setAttribute('tabindex', '-1');
-    thankYou.focus(); 
+    thankYou.focus();
   }
 
   function handleBeforeUnload() {
