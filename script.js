@@ -76,16 +76,34 @@ const AppointmentForm = (() => {
     const errorEl = document.getElementById('phone-error');
     const value = phoneField.value.trim();
 
-    if (value.length === 0) {
+    // Normalize input: remove all non-digit characters for validation
+    const digits = value.replace(/\D/g, '');
+
+    if (digits.length === 0) {
       showFieldError(phoneField, errorEl, 'Phone number is required.');
       trackPhoneError('empty');
       return false;
     }
-    if (!PHONE_REGEX.test(value)) {
+
+    // Acceptable formats:
+    // - 10 digits starting with 6-9 (e.g. 9876543210)
+    // - leading 0 + 10 digits (e.g. 09876543210)
+    // - country code 91 + 10 digits (e.g. 919876543210 or +91 98765 43210)
+    let isValid = false;
+    if (/^[6-9]\d{9}$/.test(digits)) {
+      isValid = true;
+    } else if (/^0[6-9]\d{9}$/.test(digits)) {
+      isValid = true;
+    } else if (/^91[6-9]\d{9}$/.test(digits)) {
+      isValid = true;
+    }
+
+    if (!isValid) {
       showFieldError(phoneField, errorEl, 'Enter a valid 10-digit mobile number.');
       trackPhoneError('invalid_format');
       return false;
     }
+
     clearFieldError(phoneField, errorEl);
     return true;
   }
